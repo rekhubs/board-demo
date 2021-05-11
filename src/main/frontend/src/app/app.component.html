@@ -1,0 +1,19 @@
+<section style="width: 1000px; margin: 10px 150px auto;">
+  <h1>Board</h1>
+  <div *ngFor="let post of posts">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-subtitle>#{{post.id}} by <i>{{post.userId}}</i></mat-card-subtitle>
+        <mat-card-title>{{post.title}}</mat-card-title>
+      </mat-card-header>
+      <p>{{post.body}}</p>
+    </mat-card>
+    <div style="margin: 3px 0 20px 40px;">
+      <mat-card *ngFor="let comment of post.comments" style="padding: 12px; margin-bottom: 1px;">
+        <mat-card-content [matTooltip]="comment.name">
+          {{comment.body}} - <i style="color: gray;">{{comment.email}}</i>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</section>
